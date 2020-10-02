@@ -1,14 +1,10 @@
 // new
-function new2(func){
-    let res = {}
-    if(func.prototype !== null){
-        res._proto_ = func.prototype
-    }
-    let ret = func.apply(res,Array.prototype.slice.call(arguments,1))
-    if ((typeof ret === "object" || typeof ret === 'function') && ret !== null){
-        return ret
-    }
-    return res
+function new2(){
+    const obj = {}
+    Constructor = Array.prototype.shift.call(arguments)
+    obj.__prototype__ = Constructor.prototype
+    let ret = Constructor.apply(obj,arguments)
+    return typeof ret === 'object'? ret : obj
 }
 
 //测试 new2
