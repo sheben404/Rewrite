@@ -9,9 +9,9 @@ function B(name,age){
     this.age = age
 }
 
-function tem (){}
-tem.prototype = A.prototype
-B.prototype = new tem()
+function temp (){}
+temp.prototype = A.prototype
+B.prototype = new temp()
 
 B.prototype.constructor = B
 B.prototype.sayAge = function(){}
