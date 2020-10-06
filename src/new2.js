@@ -2,7 +2,7 @@
 function new2(){
     const obj = {}
     Constructor = Array.prototype.shift.call(arguments)
-    obj.__prototype__ = Constructor.prototype
+    obj.__proto__ = Constructor.prototype
     let ret = Constructor.apply(obj,arguments)
     return typeof ret === 'object'? ret : obj
 }
