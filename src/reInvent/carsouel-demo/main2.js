@@ -45,4 +45,3 @@ class Carousel {
   }
 }
 new Carousel(document.querySelector('.carousel'))
-// http://js.jirengu.com/lisuz/edit?html,css,output 栅格组件JS手写

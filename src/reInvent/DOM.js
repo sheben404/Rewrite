@@ -1,13 +1,13 @@
 //简单版
 ul.addEventListener('click',function(e){
-    if(e.target.tagName.toLowerCase==='li'){
+    if(e.target.tagName.toLowerCase() === 'li'){
         fn()
     }
 })
 //完整版
 function delegate(element, eventType, selector, fn){
-    let el = e.target
     element.addEventListener(eventType,e=>{
+        let el = e.target
         while(!el.matches(selector)){
             if(el===element){
                 el = null
@@ -18,5 +18,4 @@ function delegate(element, eventType, selector, fn){
         el && fn.call(el,e,el)
     })
     return element
-
 }
