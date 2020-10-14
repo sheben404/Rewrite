@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double column layout</title>
+    <style>
+        /* 
+        这是使用BFC
+        .container{
+            width: 500px;
+            border: 1px solid black;
+        }
+        .left{
+            float: left;
+            background-color: lightblue;
+            opacity: 0.5;
+            height: 200px;
+        }
+        .main{
+            background-color:red;
+            height: 200px;
+            overflow:hidden;
+        } */
+        .container{
+            display: flex;
+            width: 500px;
+        }
+        .left{
+            background-color: lightblue;
+            opacity: 0.5;
+            height: 200px;
+        }
+        .main{
+            background-color:red;
+            flex-grow: 1;
+            height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            浮动元素浮动
+        </div>
+        <div class="main">
+            自适应
+        </div>
+    </div>
+</body>
+</html>
