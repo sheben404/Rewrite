@@ -4,27 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Double column layout</title>
-    <style>
+    <style>       
+        /*这是不对父元素使用overflow:hidden(不产生BFC)，可以看出这种情况下，.left底部超出父元素的高度*/
         /* 
-        这是使用BFC
         .container{
             width: 500px;
-            border: 1px solid black;
+            border: 1px solid black;           
         }
         .left{
             float: left;
             background-color: lightblue;
             opacity: 0.5;
-            height: 200px;
+            height: 300px;
+            
+        }
+        .main{
+            background-color:red;
+            height: 200px;          
+        } */
+
+        /*这是对父元素使用overflow:hidden(产生BFC)，可以看出这种情况下，父元素包裹住.left底部*/
+        /* .container{
+            width: 500px;
+            border: 1px solid black;
+            overflow:hidden;
+        }
+        .left{
+            float: left;
+            background-color: lightblue;
+            opacity: 0.5;
+            height: 300px;
+            
+        }
+        .main{
+            background-color:red;
+            height: 200px;          
+        } */
+
+        /*这是对.main使用overflow:hidden(产生BFC)，实现双栏布局*/
+        /* .container{
+            width: 500px;
+            border: 1px solid black;
+            overflow:hidden;
+        }
+        .left{
+            float: left;
+            background-color: lightblue;
+            opacity: 0.5;
+            height: 300px;
+            
         }
         .main{
             background-color:red;
             height: 200px;
             overflow:hidden;
         } */
+
+        /*这是使用flex布局实现的双栏布局*/
         .container{
             display: flex;
             width: 500px;
+            overflow:hidden;
+            border: 1px solid black;
         }
         .left{
             background-color: lightblue;
