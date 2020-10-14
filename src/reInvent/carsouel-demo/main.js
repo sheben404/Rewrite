@@ -3,7 +3,7 @@ const $$ = s => document.querySelectorAll(s)
 
 const dotCt = $('.carousel .dots')
 const preBtn = $('.carousel .pre')
-const nextBtn = $('.carousel next')
+const nextBtn = $('.carousel .next')
 
 const panels = Array.from($$('.carousel .panels > a'))
 const dots = Array.from($$('.carousel .dots span'))
@@ -20,7 +20,7 @@ const preIndex = () => (getIndex() - 1 + dots.length) % dots.length
 const nextIndex = () => (getIndex() + 1) % dots.length
 
 dotCt.onclick = e =>{
-  if(e.target.tagName.toLowerCase !== 'span') return
+  if(e.target.tagName.toLowerCase() !== 'span') return
   let index = dots.indexOf(e.target)
   setActive(index)
 }
