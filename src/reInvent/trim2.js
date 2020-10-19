@@ -22,10 +22,6 @@ function trim2(str){
 }
 
 //使用正则表达式
-String.prototype.trim = function(){
-    return this.replace(/^\s+|\s+$/g, '')
-}
-//或者 
-function trim(string){
+function _trim(string){
     return string.replace(/^\s+|\s+$/g, '')
 }
