@@ -25,7 +25,7 @@ class C {
   }
   sayName() {console.log(this.name)}
 }
-class D extends A {
+class D extends C {
   constructor(name, age) {
     super(name)
     this.age = age
