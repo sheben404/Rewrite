@@ -1,6 +1,7 @@
 //apply
 Function.prototype.myApply = function(context,args){
     context = (typeof context === 'object' ? context : window)
+    context.fn = this
     let res = ''
     if(!args){res = context.fn()}
     else{res = context.fn(...args)}
