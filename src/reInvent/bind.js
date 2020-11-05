@@ -3,7 +3,7 @@ Function.prototype.myBind = function (...args) {
     context = args[0],
     bindArgs = args.slice(1)
 
-  return function (...args) {
-    fn.apply(context, [...bindArgs, ...args])
+  return function (...newArgs) {
+    fn.apply(context, [...bindArgs, ...newArgs])
   }
 }

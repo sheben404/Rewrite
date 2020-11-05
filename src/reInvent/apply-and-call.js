@@ -3,8 +3,7 @@ Function.prototype.myApply = function(context,args){
     context = (typeof context === 'object' ? context : window)
     context.fn = this
     let res = ''
-    if(!args){res = context.fn()}
-    else{res = context.fn(...args)}
+    res = context.fn(...args)
     delete context.fn
     return res
 }
@@ -23,12 +22,12 @@ function fn(name, age) {
 fn.myApply(obj, ['LJ', 25]); // {value: "hdove", name: "LJ", age: 25}
 
 //call
-Function.prototype.myCall = function(context){
-    context = (typeof context === 'object' ? context : window)
+Function.prototype.myCall = function(...args){
+    context = (typeof args[0] === 'object' ? args[0] : window)
     context.fn = this
     let result = ''
-    const args = [...arguments].slice(1)
-    result = context.fn(...args)
+    const newArgs = args.slice(1)
+    result = context.fn(...newArgs)
     delete context.fn
     return result
 }
