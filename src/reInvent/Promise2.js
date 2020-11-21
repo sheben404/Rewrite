@@ -37,7 +37,7 @@ Promise2.all = function(arrP){
             arrP[i].then(data =>{
                 list[i] = data
                 len++
-                len === arrP.length && resolve(list)
+                !hasError && len === arrP.length && resolve(list)
             },error => {
                 !hasErr && reject(error)
                 hasErr = true
