@@ -1,16 +1,28 @@
 //Throttle
 function Throttle(fn, delay){
-    let canUse = true
+    let timer = null
     return function(){
-        if(canUse){
-            canUse = false
-            fn.apply(this,arguments)
-            setTimeout(()=>{
-                canUse = true
-            },delay)
-        }
+        const context = this
+        if(timer){return}
+        timer = setTimeout(()=>{
+            fn.apply(context, arguments)
+            timer = null
+        },delay)        
     }
 }
+//原版本
+// function Throttle(fn, delay){
+//     let canUse = true
+//     return function(){
+//         if(canUse){
+//             canUse = false
+//             fn.apply(this,arguments)
+//             setTimeout(()=>{
+//                 canUse = true
+//             },delay)
+//         }
+//     }
+// }
 //测试
 const throttled = Throttle(() => console.log('hi'))
 throttled()
@@ -21,7 +33,7 @@ function debounce(fn, delay){
      let timerId = null
      return function(){
          const context = this
-         if(timerId){window.clearTimeout(timerId)}
+         if(timerId){window.clearTimeout(timerId)}         
          timerId = setTimeout(()=>{
              fn.apply(context, arguments)
              timerId = null
