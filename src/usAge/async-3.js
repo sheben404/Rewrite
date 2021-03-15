@@ -10,7 +10,7 @@ async function async2(){
 
 console.log('script start')
 
-setTimeout(function(){ // 宏任务 
+setTimeout(function(){ // 宏任务
     console.log('setTimeout')
 },0)
 
@@ -20,8 +20,18 @@ async1()
 new Promise(function(resolve){
     console.log('Promise')
     resolve()
-}).then(function(){ // 微任务 // then 是异步 
+}).then(function(){ // 微任务 // then 是异步
     console.log('Promise2')
 })
 
 console.log('script end')
+
+// 打印结果：
+// script start
+// async1 start
+// async2
+// Promise
+// script end
+// async1 end
+// Promise2
+// setTimeout

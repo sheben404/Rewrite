@@ -5,88 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Double column layout</title>
     <style>       
-        /*这是不对父元素使用overflow:hidden(不产生BFC)，可以看出这种情况下，.left底部超出父元素的高度*/
-        /* 
-        .container{
-            width: 500px;
-            border: 1px solid black;           
-        }
-        .left{
-            float: left;
-            background-color: lightblue;
-            opacity: 0.5;
-            height: 300px;
-            
-        }
-        .main{
-            background-color:red;
-            height: 200px;          
-        } */
-
-        /*这是对父元素使用overflow:hidden(产生BFC)，可以看出这种情况下，父元素包裹住.left底部*/
-        /* .container{
-            width: 500px;
-            border: 1px solid black;
-            overflow:hidden;
-        }
-        .left{
-            float: left;
-            background-color: lightblue;
-            opacity: 0.5;
-            height: 300px;
-            
-        }
-        .main{
-            background-color:red;
-            height: 200px;          
-        } */
-
         /*这是对.main使用overflow:hidden(产生BFC)，实现双栏布局*/
         /* .container{
-            width: 500px;
             border: 1px solid black;
-            overflow:hidden;
         }
         .left{
             float: left;
             background-color: lightblue;
-            opacity: 0.5;
-            height: 300px;
-            
+            width: 100px;
+            opacity: 0.5;    
         }
         .main{
             background-color:red;
-            height: 200px;
             overflow:hidden;
         } */
 
         /*这是使用flex布局实现的双栏布局*/
-        .container{
-            display: flex;
-            width: 500px;
-            overflow:hidden;
+        /* .container{
             border: 1px solid black;
+            display: flex;
         }
         .left{
             background-color: lightblue;
+            width: 100px;
             opacity: 0.5;
-            height: 200px;
         }
         .main{
             background-color:red;
             flex-grow: 1;
-            height: 200px;
-        }
-
+        } */
     </style>
 </head>
 <body>
     <div class="container">
         <div class="left">
-            浮动元素浮动
+            浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动
         </div>
         <div class="main">
-            自适应
+            自适应浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动浮动元素浮动
         </div>
     </div>
 </body>

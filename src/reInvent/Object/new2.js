@@ -1,10 +1,10 @@
 // new
-function new2(){
-    const obj = {}
-    Constructor = [].shift.call(arguments)
-    obj.__proto__ = Constructor.prototype
-    let ret = Constructor.apply(obj,arguments)
-    return typeof ret === 'object'? ret : obj
+function new2 () {
+  const obj = {}
+  Constructor = [].shift.call(arguments) //取 arguments 的第一个参数，也就是传进来的对象
+  obj.__proto__ = Constructor.prototype
+  let ret = Constructor.apply(obj, arguments)
+  return typeof ret === 'object' ? ret : obj
 }
 
 //测试 new2
