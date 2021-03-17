@@ -1,4 +1,4 @@
-//Promise2,未实现级联和catch
+// Promise2,未实现级联和catch
 class Promise2{
     succeed = null
     fail = null
@@ -27,7 +27,7 @@ class Promise2{
     }
 }
 
-//Promise2.all
+// Promise2.all
 Promise2.all = function(arrP){
     let list = []
     let len = 0
@@ -45,7 +45,7 @@ Promise2.all = function(arrP){
         }
     })
 }
-//Promise2.race
+// Promise2.race
 Promise2.race = function(arrP){
     let hasValue = false
     let hasError = false
@@ -61,6 +61,14 @@ Promise2.race = function(arrP){
         }
     })
 }
+// finally
+Promise.prototype.finally = function (callback) {
+  const P = this.constructor;
+  return this.then(
+    value => P.resolve(callback()).then(() => value),
+    reason =>P.resolve(callback()).then(() => {throw reason})
+  );
+};
 
 //测试代码
 new Promise2((resolve, reject) => {
