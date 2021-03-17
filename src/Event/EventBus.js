@@ -1,6 +1,6 @@
 class EventBus{
     map = {}
-
+    
     on(type,handler){
         this.map[type] = (this.map[type] || []).concat(handler)
     }
