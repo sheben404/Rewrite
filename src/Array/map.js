@@ -28,10 +28,10 @@ Array.prototype.myMap = function (callBackFn, thisArg) {
     throw new TypeError(callBackFn + ' is not a function')
   }
 
-  let obj = Object(this)
+  let array = Object(this)
   let T = thisArg
 
-  let len = obj.length >>> 0;
+  let len = array.length >>> 0;
   // length >>> 0, 字面意思是指"右移 0 位"
   // 实际上是把前面的空位用0填充
   // 这里的作用是保证len为数字且为整数
@@ -48,13 +48,12 @@ Array.prototype.myMap = function (callBackFn, thisArg) {
   // -1 >>> 0                   //4294967295
   // -1212 >>> 0                //4294966084
 
-  let array = new Array(len)
+  let res = new Array(len)
   for (let key = 0; key < len; key++) {
-    if (key in obj) {
-      let kValue = obj[key]
-      let mappedValue = callBackFn.call(T, kValue, key, obj)
-      array[key] = mappedValue
+    if (key in array) {
+      let kValue = array[key]
+      res[key] = callBackFn.call(T, kValue, key, array)
     }
   }
-  return array;
+  return res;
 }

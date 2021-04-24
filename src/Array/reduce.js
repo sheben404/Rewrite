@@ -8,15 +8,15 @@ Array.prototype.myReduce = function (callbackFn, initialValue) {
     throw new TypeError(callbackfn + ' is not a function')
   }
 
-  let obj = Object(this)
-  let len = obj.length >>> 0
+  let array = Object(this)
+  let len = array.length >>> 0
 
   let key = 0
   let accumulator = initialValue
   if (accumulator === undefined) {
     for (; (key < len) && (accumulator === undefined); key++) {
-      if (key in obj) {
-        accumulator = obj[key]
+      if (key in array) {
+        accumulator = array[key]
         key++
       }
     }
@@ -25,8 +25,8 @@ Array.prototype.myReduce = function (callbackFn, initialValue) {
     }
   }
   for (; key < len; k++) {
-    if (key in obj) {
-      accumulator = callbackFn.call(undefined, accumulator, obj[key], key, obj)
+    if (key in array) {
+      accumulator = callbackFn.call(undefined, accumulator, array[key], key, array)
     }
   }
   return accumulator
